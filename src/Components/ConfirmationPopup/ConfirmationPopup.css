@@ -1,0 +1,9 @@
+.confirm{
+    background-color: #3f0058;
+    border-color: transparent;
+}
+.confirm:hover{
+    background-color: white;
+    color: black;
+    border-color: #3f0058;
+}

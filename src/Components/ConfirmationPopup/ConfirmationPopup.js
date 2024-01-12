@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Modal, Button} from 'react-bootstrap';
 import './ConfirmationPopup.css'
+import { Constants } from '../Constant';
 
 class ConfirmationPopup extends Component {
     render() {
@@ -12,10 +13,10 @@ class ConfirmationPopup extends Component {
                     <Modal.Body><h2>{this.props.confirmationPopup.confirmationMessage}</h2></Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={this.props.confirmationPopup.handleCloseModal}>
-                            Cancel
+                            {Constants.CANCEL}
                         </Button>
                         <Button variant="primary" className='confirm' onClick={this.props.confirmationPopup.handleConfirmModal}>
-                            Yes, Delete
+                            {Constants.YES_DELETE}
                         </Button>
                     </Modal.Footer>
                 </Modal>

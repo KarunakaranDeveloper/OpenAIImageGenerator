@@ -4,6 +4,7 @@ import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 import axios from 'axios';
 import Delete from "../assets/delete.svg"
 import ConfirmationPopup from './ConfirmationPopup/ConfirmationPopup'
+import { Constants } from './Constant';
 
 
 class ImageGenerator extends Component {
@@ -18,7 +19,7 @@ class ImageGenerator extends Component {
             currentlySelectedImage: "",
             showSpinner: false,
             confirmationPopup:{
-                confirmationMessage:"Do you want to delete this image?",
+                confirmationMessage: Constants.DELETE_MESSAGE,
                 id:"",
                 showModal: false,
                 handleCloseModal:"",
@@ -142,7 +143,7 @@ class ImageGenerator extends Component {
                     :
 
                     <Container>
-                        <h1 className="mt-4 mb-4 header">Image Generator</h1>
+                        <h1 className="mt-4 mb-4 header">{Constants.HEADING}</h1>
 
                         <Row>
                             {/* Offset 4 columns */}
@@ -165,8 +166,8 @@ class ImageGenerator extends Component {
                                     </Row>
                                 </Form>
 
-                                {loading && <p className='loader'>Loading...</p>}
-                                {!loading && generatedImages.length === 0 && <p className='suggestions'>No data found. Try a prompt.</p>}
+                                {loading && <p className='loader'>{Constants.LOADING}</p>}
+                                {!loading && generatedImages.length === 0 && <p className='suggestions'>{Constants.NO_DATA}</p>}
 
 
 
@@ -184,8 +185,8 @@ class ImageGenerator extends Component {
                                                     <Card.Text>{image.description}</Card.Text> */}
                                                     <Row>
                                                         <Col  md={12} className='center'>
-                                                            <Button variant="primary" className='searchButton' onClick={() => this.handleImageClick(image.url)}>View</Button>
-                                                            <Button variant="primary" className='deleteButton' onClick={() => this.handleDeleteImage(image._id)}>Delete <img src={Delete} className='deleteIcon'/></Button>
+                                                            <Button variant="primary" className='searchButton' onClick={() => this.handleImageClick(image.url)}>{Constants.VIEW}</Button>
+                                                            <Button variant="primary" className='deleteButton' onClick={() => this.handleDeleteImage(image._id)}>{Constants.DELETE} <img src={Delete} className='deleteIcon'/></Button>
                                                         </Col>
                                                     </Row>
                                                 </Card.Body>
